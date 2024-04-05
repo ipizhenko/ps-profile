@@ -12,13 +12,15 @@ function Get-GitBranchPrompt
 
 function prompt
 {
+  $d = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
   $p = Get-Location
   $b = Get-GitBranchPrompt
   Write-Host ""
   Write-Host -NoNewline "$p"
   if ($b -ne "") {
-    Write-Host -ForegroundColor Yellow " ($b)"
+    Write-Host -NoNewline -ForegroundColor Yellow " ($b)"
   }
+  Write-Host -ForegroundColor DarkCyan " [$d]"
   Write-Host -NoNewLine ">"
   return " "
 }
